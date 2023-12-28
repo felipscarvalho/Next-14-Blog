@@ -1,7 +1,9 @@
+import styles from "./blogPost.module.css"
+import PostCard from "@/components/postCard/PostCard"
+
 export default function SinglePostPage() {
     return(
-        <>
-            <h1>SinglePostPage</h1>
-        </>
+        <div className={ styles.container }>
+        </div>
     )
 }
