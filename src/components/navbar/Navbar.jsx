@@ -1,9 +1,11 @@
 import Redirects from "./redirects/Redirects"
 
-export default function Navbar() {
+import styles from "./navbar.module.css"
+
+export default function Navbar({}) {
     return(
-        <nav>
-            <div>Logo</div>
+        <nav className={styles.container}>
+            <div className={styles.logo}>Logo</div>
             <section>
                 <Redirects />
             </section>

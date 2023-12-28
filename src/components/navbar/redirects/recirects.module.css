@@ -1,0 +1,47 @@
+.redirects {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout {
+    padding: 10px;
+    border: none;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.logout:hover {
+    cursor: pointer;
+}
+
+.menuButton, .mobileRedirects {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .redirects {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+    }
+
+    .mobileRedirects {
+        display: block;
+        position: absolute;
+        top: 100px;
+        right: 0;
+        width: 50%;
+        height: calc(100vh - 100px);
+        background-color: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        overflow: hidden;
+        transition: height .5s ease-in-out;
+    }
+}

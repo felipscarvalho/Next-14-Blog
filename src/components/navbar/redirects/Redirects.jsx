@@ -1,6 +1,12 @@
-import Link from "next/link"
+"use client"
+
+import styles from "./recirects.module.css"
+import NavRedirect from "./navRedirect/NavRedirect"
+import { useState } from "react"
 
 export default function Redirects() {
+    const [open, setOpen] = useState(false)
+
     const links = [
         {
             title: "Home",
@@ -20,13 +26,35 @@ export default function Redirects() {
         },
     ]
 
+    const session = true
+    const isAdmin = true
+
     return(
-        <>
-            {links.map((link) => {
-                return(
-                    <Link key={link.title} href={link.path}>{link.title}</Link>
-                )
-            })}
-        </>
+        <div className={ styles.container }>
+            <div className={ styles.redirects }>
+                {links.map((link) => {
+                    return(
+                        <NavRedirect key={link.title} item={link} />
+                    )
+                })}
+                {
+                    session ? 
+                    <>
+                        {isAdmin && <NavRedirect item={{title: "Admin", path:"/admin"}} />}
+                        <button className={ styles.logout }>Logout</button>
+                    </> : <NavRedirect item={{title: "Login", path:"/login"}} />
+                }
+            </div>
+            <button className={ styles.menuButton } onClick={() => setOpen((prev) => !prev)}>Menu</button>
+            {
+                open && <div className={ styles.mobileRedirects }>
+                    {links.map((link) => {
+                        return(
+                            <NavRedirect key={link.title} item={link} />
+                        )
+                    })}
+                </div>
+            }
+        </div>
     )
 }
