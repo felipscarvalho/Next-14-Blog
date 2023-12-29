@@ -3,6 +3,7 @@
 import styles from "./recirects.module.css"
 import NavRedirect from "./navRedirect/NavRedirect"
 import { useState } from "react"
+import Image from "next/image"
 
 export default function Redirects() {
     const [open, setOpen] = useState(false)
@@ -45,7 +46,7 @@ export default function Redirects() {
                     </> : <NavRedirect item={{title: "Login", path:"/login"}} />
                 }
             </div>
-            <button className={ styles.menuButton } onClick={() => setOpen((prev) => !prev)}>Menu</button>
+            <Image src={"/menu.png"} width={30} height={30} alt="" className={ styles.menuButton } onClick={() => setOpen((prev) => !prev)}></Image>
             {
                 open && <div className={ styles.mobileRedirects }>
                     {links.map((link) => {
