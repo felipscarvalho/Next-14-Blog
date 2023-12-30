@@ -1,4 +1,4 @@
-import { addPost } from "@/lib/actions";
+import { addPost, deletePost } from "@/lib/actions";
 
 export default function ServerActionTestPage(){
     return(
@@ -9,6 +9,10 @@ export default function ServerActionTestPage(){
                 <input type="text" placeholder="slug" name="slug"/>
                 <input type="text" placeholder="userId" name="userId"/>
                 <button>Create Post</button>
+            </form>
+            <form action={deletePost}>
+                <input type="text" placeholder="postId" name="postId"/>
+                <button>Delete Post</button>
             </form>
         </div>
     )

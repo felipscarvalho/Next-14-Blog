@@ -2,15 +2,15 @@ import PostCard from "@/components/postCard/PostCard"
 import styles from "./posts.module.css"
 import { getPosts } from "@/lib/data"
 
-//  const fetchData = async () => {
-//      const res = await fetch("https://jsonplaceholder.typicode.com/posts", {next: {revalidate: 3600}})
-//  
-//      if(!res.ok) {
-//          throw new Error("Something went wrong!");
-//      }
-//  
-//      return res.json()
-//  }
+const fetchData = async () => {
+    const res = await fetch("http://localhost:3000/api/posts", {next: {revalidate: 3600}})
+  
+    if(!res.ok) {
+        throw new Error("Something went wrong!");
+    }
+  
+    return res.json()
+}
 
 export const metadata = {
     title: 'Posts',
@@ -18,9 +18,9 @@ export const metadata = {
 }
 
 export default async function BlogPage() {
-    //  const posts = await fetchData()
+    const posts = await fetchData()
 
-    const posts = await getPosts();
+    //  const posts = await getPosts();
 
     console.log(posts)
 
